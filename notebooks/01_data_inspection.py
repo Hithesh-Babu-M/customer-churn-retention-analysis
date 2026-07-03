@@ -1,0 +1,11 @@
+import pandas as pd
+df = pd.read_csv("data/telco_churn_raw.csv")
+print(df.shape)
+print(df.head())
+print(df.columns.tolist())
+print(df.info())
+print(df[df['TotalCharges']==' '])
+df['TotalCharges']= df['TotalCharges'].replace(' ', '0')
+df['TotalCharges']= df['TotalCharges'].astype(float)
+print(df['TotalCharges'].dtype)
+print(df['TotalCharges'].isnull().sum())
